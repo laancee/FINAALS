@@ -1,0 +1,188 @@
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-compative" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="style.css">
+        <title>LOGIN</title>
+    </head>
+    <body>
+    <div class="wrapper">
+        <nav class="class nav">
+            <div class="class nav-logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="#" class="link active" onclick="showContent('home')">Home</a></li>
+                    <li><a href="#" class="link" onclick="showContent('products')">Products</a></li>
+                    <li><a href="#" class="link" onclick="showContent('about')">About Us</a></li>
+                </ul>
+            </div>
+            <div class="nav-button">
+                <button class="btn white-btn" id="loginBtn" onclick="login()">Sign In</button>
+                <button class="btn" id="registerBtn" onclick="register()">Sign Up</button>
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu" onclick="myMenuFunctions()"></i>
+            </div>
+        </nav>
+      
+    <!-- Content section for Home -->
+    <div id="homeContent" class="content">
+        <!-- Add your home page content here -->
+        <h2>Welcome to Our Website!</h2>
+        <p>This is the home page content.</p>
+    </div>
+
+    <!-- Content section for Products -->
+    <div id="productsContent" class="content" style="display: none;">
+        <!-- Add your products content here -->
+        <h2>Our Products</h2>
+        <p>Check out our amazing products.</p>
+    </div>
+
+    <!-- Content section for About Us -->
+    <div id="aboutContent" class="content" style="display: none;">
+        <!-- Add your About Us content here -->
+        <h2>About Us</h2>
+        <p>Learn more about our company and mission.</p>
+    </div>
+<!----------------------------------------FORM BOX--------------->
+     <div class="form-box" id="formBox">
+        <!--------------------LOGIN FORM--------------------------------->
+        <div class="login-container" id="login">
+            <div class="top">
+                <span> Don't Have an account? <a href="#" onclick="register()">Sign Up</a></span>
+                <header>Login</header>
+            </div>
+            <div class="input-box">
+                <input type="text" class="input-field" placeholder="Username or Email">
+                <i class="bx bx-user"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field" placeholder="Password">
+                <i class="bx bx-lock-alt"></i>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit" value="Sign In">
+            </div>
+            <div class="two-col">
+                <div class="one">
+                    <input type="checkbox" id="login-check">
+                    <label for="login-check"> Remember Me</label>
+                </div>
+                <div class="two"></div>
+                <label><a href="#">Forgot Password?</a></label>
+            </div>
+        </div>
+
+        <!--------------------register--------------------------------->
+        <div class="register-container" id="register">
+            <div class="top">
+                <span>Have an account? <a href="#" onclick="login()">Login</a></span>
+                <header>Sign Up</header>
+            </div>
+            <div class="two-forms">
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Firstname">
+                    <i class="bx bx-user"></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" class="input-field" placeholder="Lastname">
+                    <i class="bx bx-user"></i>
+                </div>
+            </div>
+            <div class="input-box">
+                <input type="text" class="input-field" placeholder="Email">
+                <i class="bx bx-envelope"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" class="input-field" placeholder="Password">
+                <i class="bx bx-lock-alt"></i>
+            </div>
+            <div class="input-box">
+                <input type="submit" class="submit" value="Register">
+            </div>
+            <div class="two-col">
+                <div class="one">
+                    <input type="checkbox" id="register-check">
+                    <label for="register-check"> Remember Me</label>
+                </div>
+                <div class="two"></div>
+                <label><a href="#" onclick="showTermsAlert()">Terms & Conditions</a></label>
+            </div>
+        </div>
+     </div>       
+ </div>
+
+ <script>
+    var formBox = document.getElementById("formBox");
+    var homeContent = document.getElementById("homeContent");
+    var productsContent = document.getElementById("productsContent");
+    var aboutContent = document.getElementById("aboutContent");
+
+    function showContent(content) {
+        if (content === 'home') {
+            formBox.style.display = "none"; 
+            homeContent.style.display = "block"; 
+            productsContent.style.display = "none"; 
+            aboutContent.style.display = "none"; 
+        } else if (content === 'products') {
+            formBox.style.display = "none"; 
+            homeContent.style.display = "none"; 
+            productsContent.style.display = "block"; 
+            aboutContent.style.display = "none"; 
+        } else if (content === 'about') {
+            formBox.style.display = "none"; 
+            homeContent.style.display = "none"; 
+            productsContent.style.display = "none"; 
+            aboutContent.style.display = "block"; 
+        }
+    }
+ </script>
+
+
+ <script>
+    function showTermsAlert() {
+        alert(`Account Creation: Users must provide accurate information when registering. You are responsible for maintaining the confidentiality of your account details.
+
+Acceptable Use: You agree to use our website only for lawful purposes and not to engage in any illegal activities or abuse our services.
+
+Ownership of Content: Any content you submit remains yours, but you grant us permission to use it for operational purposes of the website.
+
+Termination: We reserve the right to terminate accounts for violations of these terms or for any reason deemed necessary.
+
+Changes to Terms: These terms may be updated occasionally, and continued use of the website signifies acceptance of any changes.`);
+    }
+</script>
+ 
+ <script>
+    var a = document.getElementById("loginBtn");
+    var b = document.getElementById("registerBtn");
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+
+    function login(){
+        x.style.left = "4px";
+        y.style.right = "-520px";
+        a.className += " white-btn";
+        b.className = "btn";
+        x.style.opacity = 1;
+        y.style.opacity = 0;
+    }
+
+    function register() {
+        x.style.left = "-510px";
+        y.style.right = "5px";
+        a.className = "btn";
+        b.className += " whitebtn";
+        x.style.opacity = 0;
+        y.style.opacity = 1;
+    }
+
+ </script>
+ </body> 
+</html>
